@@ -507,30 +507,38 @@
         <div class="form-group">
             <label>➕ خدمات إضافية (اختياري)</label>
             <div class="addons">
-                <label class="addon-row">
-                    <span class="addon-check"><input type="checkbox" id="addDecor" onchange="recalcPrice()"> 🎨 ديكور وخلفية مخصّصة فاخرة</span>
-                    <span class="addon-price">٧٥٠ ريال</span>
-                </label>
-                <label class="addon-row">
-                    <span class="addon-check"><input type="checkbox" id="addHours" onchange="recalcPrice()"> ⏱️ ساعات إضافية</span>
-                    <select id="hoursSelect" onchange="if(!document.getElementById('addHours').checked){document.getElementById('addHours').checked=true;} recalcPrice();">
-                        <option value="1">ساعة — ٣٠٠ ريال</option>
-                        <option value="2">ساعتين — ٦٠٠ ريال</option>
-                        <option value="3">٣ ساعات — ٩٠٠ ريال</option>
-                    </select>
-                </label>
-                <label class="addon-row">
-                    <span class="addon-check"><input type="checkbox" id="addAI" onchange="recalcPrice()"> ✨ خلفيات AI احترافية</span>
-                    <span class="addon-price">٤٠٠ ريال</span>
-                </label>
-                <label class="addon-row">
-                    <span class="addon-check"><input type="checkbox" id="addFrame" onchange="recalcPrice()"> 🖼️ تصميم إطار مخصّص</span>
-                    <span class="addon-price">٢٠٠ ريال</span>
-                </label>
-                <label class="addon-row">
-                    <span class="addon-check"><input type="checkbox" id="addVideo" onchange="recalcPrice()"> 🎬 فيديو / بوميرانج للحدث</span>
-                    <span class="addon-price">٢٥٠ ريال</span>
-                </label>
+                <div class="addon-item">
+                    <label class="addon-row">
+                        <span class="addon-check"><input type="checkbox" id="addDecor" onchange="recalcPrice()"> 🎨 ديكور وخلفية مخصّصة فاخرة</span>
+                        <span class="addon-price">٧٥٠ ريال</span>
+                    </label>
+                    <p style="font-size:11px;color:#999;margin:3px 2px 9px;line-height:1.6;">تجهيز ركن الفوتوبوث بديكور وخلفية متناسقة مع ألوان أو ثيم المناسبة، ليظهر الركن والصور بشكل أجمل.</p>
+                </div>
+                <div class="addon-item">
+                    <label class="addon-row">
+                        <span class="addon-check"><input type="checkbox" id="addHours" onchange="recalcPrice()"> ⏱️ ساعات إضافية</span>
+                        <select id="hoursSelect" onchange="if(!document.getElementById('addHours').checked){document.getElementById('addHours').checked=true;} recalcPrice();">
+                            <option value="1">ساعة — ٣٠٠ ريال</option>
+                            <option value="2">ساعتين — ٦٠٠ ريال</option>
+                            <option value="3">٣ ساعات — ٩٠٠ ريال</option>
+                        </select>
+                    </label>
+                    <p style="font-size:11px;color:#999;margin:3px 2px 9px;line-height:1.6;">تمديد تشغيل الفوتوبوث ساعة كاملة (٣٠٠ ريال للساعة) بعد انتهاء مدة الباقة، مع استمرار التصوير والخدمة خلال الساعة الإضافية.</p>
+                </div>
+                <div class="addon-item">
+                    <label class="addon-row">
+                        <span class="addon-check"><input type="checkbox" id="addAI" onchange="recalcPrice()"> ✨ خلفيات AI احترافية</span>
+                        <span class="addon-price">٤٠٠ ريال</span>
+                    </label>
+                    <p style="font-size:11px;color:#999;margin:3px 2px 9px;line-height:1.6;">تجربة تصوير تستخدم الذكاء الاصطناعي لإنتاج صور بخلفيات وتأثيرات إبداعية مختلفة عن الصور التقليدية.</p>
+                </div>
+                <div class="addon-item">
+                    <label class="addon-row">
+                        <span class="addon-check"><input type="checkbox" id="addFrame" onchange="recalcPrice()"> 🖼️ تصميم إطار مخصّص</span>
+                        <span class="addon-price">٢٠٠ ريال</span>
+                    </label>
+                    <p style="font-size:11px;color:#999;margin:3px 2px 9px;line-height:1.6;">تصميم إطار خاص يظهر على صور المناسبة، يمكن تنسيقه باسم المناسبة أو التاريخ.</p>
+                </div>
             </div>
         </div>
 
@@ -631,10 +639,9 @@
 
     // ===== الباقات والتسعير =====
     const PACKAGES = {
-        asasia:  { name:'الباقة الأساسية', price:1500, duration:'3 ساعات', feats:['مرآة سحرية تفاعلية','مشرفة مخصّصة','طباعة فورية غير محدودة','خلفية أنيقة وإكسسوارات','مدة الحجز: 3 ساعات'] },
-        gold:    { name:'الباقة الذهبية', price:2200, duration:'4 ساعات', feats:['كل مزايا الأساسية','طباعة فورية غير محدودة','تصميم إطار مخصّص للصور','بوميرانج / GIF + معرض رقمي','مدة الحجز: 4 ساعات'] },
-        premium: { name:'الباقة المميزة', price:3000, duration:'5 ساعات', feats:['كل مزايا الذهبية','خلفيات AI احترافية','ألبوم ذكريات مطبوع','طباعة فورية غير محدودة','مدة الحجز: 5 ساعات'] },
-        vip:     { name:'باقة VIP', price:4000, duration:'6 ساعات', feats:['كل مزايا المميزة','مشرفة ثانية','شاشة عرض مباشرة','فيديو هايلايت للحدث','مدة الحجز: 6 ساعات'] }
+        asasia:  { name:'الباقة الأساسية', price:1500, duration:'3 ساعات', desc:'مناسبة للمناسبات الصغيرة والفعاليات القصيرة — تجربة فوتوبوث متكاملة لمدة 3 ساعات مع طباعة غير محدودة طوال الحجز.', feats:['مرآة سحرية تفاعلية','مشرفة مخصّصة','طباعة فورية غير محدودة','خلفية أنيقة وإكسسوارات','مدة الحجز: 3 ساعات'] },
+        gold:    { name:'الباقة الذهبية', price:2200, duration:'4 ساعات', desc:'مناسبة للمناسبات المتوسطة — مدة أطول (4 ساعات) وخيارات تخصيص أكثر للصور، مع طباعة غير محدودة طوال الحجز.', feats:['كل مزايا الأساسية','طباعة فورية غير محدودة','تصميم إطار مخصّص للصور','رابط معرض رقمي للصور','مدة الحجز: 4 ساعات'] },
+        premium: { name:'الباقة البلاتينية', price:3000, duration:'5 ساعات', desc:'الخيار الأعلى للمناسبات الكبيرة — أطول مدة تشغيل (5 ساعات) وتجربة أكثر شمولاً، مع طباعة غير محدودة طوال الحجز.', feats:['كل مزايا الذهبية','خلفيات AI احترافية','ألبوم ذكريات مطبوع','طباعة فورية غير محدودة','مدة الحجز: 5 ساعات'] }
     };
     let selectedPackage = 'asasia';
     let currentPricing = { total:1500, deposit:450, remaining:1050, packageName:'الباقة الأساسية', addons:'لا يوجد' };
@@ -770,6 +777,7 @@
             return `<div class="pkg-card ${k===selectedPackage?'sel':''}" onclick="selectPackage('${k}')">
                 <span class="pkg-radio"></span>
                 <div class="pkg-head"><span class="pkg-name">${p.name}</span><span class="pkg-price">${p.price} ريال</span></div>
+                ${p.desc ? `<p style="font-size:12px;color:#777;margin:2px 0 9px;line-height:1.6;">${p.desc}</p>` : ''}
                 <ul class="pkg-feats">${feats}</ul>
             </div>`;
         }).join('');
@@ -791,7 +799,6 @@
         const hrs = document.getElementById('addHours');
         const ai = document.getElementById('addAI');
         const frame = document.getElementById('addFrame');
-        const video = document.getElementById('addVideo');
         if (dec && dec.checked) { total += 750; addons.push('ديكور وخلفية مخصّصة'); }
         if (hrs && hrs.checked) {
             const h = parseInt(document.getElementById('hoursSelect').value) || 1;
@@ -799,7 +806,6 @@
         }
         if (ai && ai.checked) { total += 400; addons.push('خلفيات AI'); }
         if (frame && frame.checked) { total += 200; addons.push('إطار مخصّص'); }
-        if (video && video.checked) { total += 250; addons.push('فيديو/بوميرانج'); }
         const deposit = Math.round(total * 0.30);
         const remaining = total - deposit;
         const set = (id, v) => { const e = document.getElementById(id); if (e) e.textContent = v; };
@@ -952,7 +958,7 @@
         document.getElementById('inputNotes').value = '';
         const _c = document.getElementById('inputCode'); if (_c) _c.value = '';
         selectedPackage = 'asasia';
-        ['addDecor','addHours','addAI','addFrame','addVideo'].forEach(id => { const e = document.getElementById(id); if (e) e.checked = false; });
+        ['addDecor','addHours','addAI','addFrame'].forEach(id => { const e = document.getElementById(id); if (e) e.checked = false; });
         selectPayment('تحويل بنكي');
         setStep(1);
         renderCalendar();
