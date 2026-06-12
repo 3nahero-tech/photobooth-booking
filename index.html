@@ -400,6 +400,48 @@
         .inv-row.remain{ color:#bfc6f0; }
         /* ===== Payment notice ===== */
         .pay-notice{ margin-top:14px; background:#fff4e5; border:2px solid #ffd591; border-radius:14px; padding:14px 16px; color:#9a5b00; font-weight:800; font-size:14px; text-align:center; line-height:1.7; box-shadow:0 6px 16px rgba(255,170,40,.15); }
+
+        /* ===== Mobile responsive ===== */
+        @media (max-width: 600px){
+            html, body{ overflow-x:hidden; }
+            body{ padding:10px 6px calc(10px + env(safe-area-inset-bottom)); align-items:stretch; }
+            .container{ width:calc(100% - 16px); max-width:calc(100% - 16px); padding:16px 12px; margin:6px auto; border-radius:18px; }
+            .header h1{ font-size:18px; line-height:1.4; }
+            .header p{ font-size:11.5px; }
+            .steps{ gap:4px; margin-bottom:16px; }
+            .step{ font-size:10px; gap:3px; }
+            .step-num{ width:21px; height:21px; font-size:10px; flex-shrink:0; }
+            .step-line{ width:10px; flex-shrink:0; }
+            .month-nav{ flex-wrap:wrap; gap:6px; margin-bottom:12px; }
+            .month-title{ order:-1; flex:1 1 100%; text-align:center; font-size:15px; }
+            .month-nav button{ padding:7px 12px; font-size:12px; border-radius:10px; flex:1 1 auto; }
+            .calendar{ grid-template-columns:repeat(7, minmax(0,1fr)); gap:3px; }
+            .day-header{ font-size:9px; padding:3px 0; }
+            .day{ padding:2px 1px; border-radius:10px !important; }
+            .day-number{ font-size:11px; }
+            .day-name{ font-size:7px; margin-top:1px; overflow:hidden; white-space:nowrap; max-width:100%; }
+            .legend{ gap:8px; font-size:11px; margin-bottom:12px; }
+            .legend-dot{ width:14px; height:14px; }
+            #scarcityBadge{ font-size:11px !important; padding:8px 10px !important; line-height:1.5 !important; }
+            .selected-info{ padding:10px; }
+            .selected-date{ font-size:15px; }
+            .btn{ font-size:14px; padding:12px; }
+            .booking-details{ padding:14px; }
+            .booking-detail{ font-size:13px; }
+            .pkg-card{ padding:13px; }
+            .pkg-name{ font-size:14px; }
+            .pkg-price{ font-size:15px; }
+        }
+        @media (max-width: 360px){
+            .container{ padding:13px 9px; }
+            .header h1{ font-size:16.5px; }
+            .step span{ font-size:9px; }
+            .step-num{ width:19px; height:19px; font-size:9px; }
+            .step-line{ width:6px; }
+            .day-header{ font-size:8px; }
+            .day-number{ font-size:10px; }
+            .day-name{ font-size:6px; }
+        }
     </style>
 </head>
 <body>
